@@ -1,0 +1,9 @@
+version: "2"
+services:
+  elasticsearch:
+    container_name: "elasticsearch"
+    image: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    network_mode: "bridge"

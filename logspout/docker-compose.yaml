@@ -1,0 +1,14 @@
+version: "2"
+services:
+  logspout:
+    container_name: "logspout"
+    image: logspout-logstash
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: logstash://logstash:5000
+    network_mode: "bridge"
+    external_links:
+      - logstash
+    environment:
+      - DOCKER_HOST=tcp://10.200.67.125:4000

@@ -1,0 +1,14 @@
+version: "2"
+services:
+  logstash:
+    container_name: "logstash"
+    image: logstash
+    volumes:
+      - /opt/logstash:/opt/logstash
+    command: "-f /opt/logstash/sample.conf"
+    external_links:
+      - elasticsearch
+    network_mode: "bridge"
+    ports:
+      - "5000:5000"
+
