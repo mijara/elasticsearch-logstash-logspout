@@ -7,3 +7,6 @@ services:
       - "9200:9200"
       - "9300:9300"
     network_mode: "bridge"
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - /etc/localtime:/etc/localtime:ro

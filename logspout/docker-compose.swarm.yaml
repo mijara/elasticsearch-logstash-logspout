@@ -6,8 +6,9 @@ services:
     restart: on-failure
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /etc/localtime:/etc/localtime:ro
     command: logstash://logstash:5000
     network_mode: "bridge"
     external_links:
       - logstash
+    environment:
+      - DOCKER_HOST=tcp://0.0.0.0:4000

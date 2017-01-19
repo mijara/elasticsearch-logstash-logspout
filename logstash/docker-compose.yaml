@@ -4,7 +4,8 @@ services:
     container_name: "logstash"
     image: logstash
     volumes:
-      - /opt/logstash:/opt/logstash
+      - ./sample.conf:/opt/logstash/sample.conf
+      - /etc/localtime:/etc/localtime:ro
     command: "-f /opt/logstash/sample.conf"
     external_links:
       - elasticsearch
